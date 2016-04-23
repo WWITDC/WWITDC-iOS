@@ -1,0 +1,35 @@
+//
+//  ListViewController.h
+//  WWITDC
+//
+//  Created by Zeyu Jiang on 16/4/23.
+//  Copyright © 2016年 WWITDC. All rights reserved.
+//
+
+#import "ITDCViewController.h"
+
+@class SectionModel;
+
+@interface ListViewController : ITDCViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+
+//存储数组
+@property (strong, nonatomic) NSMutableArray *articleSectionList; //文章数组
+@property (strong, nonatomic) NSArray *topArticleList; //顶部滚动文章数组
+
+//控件
+@property (strong, nonatomic) IBOutlet UITableView *articleTableView; //文章tableview
+@property (strong, nonatomic) IBOutlet UIScrollView *bannerScrollView; //滚动视图
+@property (strong, nonatomic) IBOutlet UIPageControl *pageIndex; //页数
+@property (strong, nonatomic) UIImageView *bannerImageView; //滚动视图中的图片视图
+@property (strong, nonatomic) UILabel *titleTextLabel; //滚动视图标题
+@property (strong, nonatomic) UIImageView *maskImageView; //滚动图片上的阴影图片
+
+//数值
+@property (copy, nonatomic) NSString *date; //当前日期
+@property (assign, nonatomic) CGPoint lastContentOffset; //上一次滑动坐标
+@property (assign, readonly, nonatomic) BOOL isLoading; //判断是否还在加载
+@property (copy, nonatomic) NSString *sectionTitleText; //分组标题
+
+@property (strong, nonatomic) SectionModel *sectionModel;
+
+@end
